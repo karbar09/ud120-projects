@@ -10,6 +10,7 @@ text_learning/your_email_authors.pkl
 #my_feature_list.pkl
 final_project/.idea/
 final_project/.ipynb_checkpoints
+final_project/emails_by_address
 *.ipynb
 *.idea
 choose_your_own/
