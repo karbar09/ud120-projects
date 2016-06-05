@@ -13,7 +13,7 @@ final_project/.ipynb_checkpoints
 *.ipynb
 *.idea
 choose_your_own/
-datasets_question/
+datasets_questions/
 decision_tree/
 evaluation/
 feature_selection/
