@@ -12,3 +12,16 @@ final_project/.idea/
 final_project/.ipynb_checkpoints
 *.ipynb
 *.idea
+choose_your_own/
+datasets_question/
+decision_tree/
+evaluation/
+feature_selection/
+k_means/
+naive_bayes/
+outliers/
+regression/
+svm/
+text_learning/
+tools/
+validation/
