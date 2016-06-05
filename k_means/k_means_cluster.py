@@ -43,11 +43,21 @@ data_dict = pickle.load( open("../final_project/final_project_dataset.pkl", "r")
 ### there's an outlier--remove it! 
 data_dict.pop("TOTAL", 0)
 
+import math
+import numpy as np
+
+vals = []
+for key in data_dict:
+    if data_dict[key]["salary"] != "NaN":
+        vals.append(data_dict[key]["salary"])
+print min(vals),max(vals)
 
 ### the input features we want to use 
 ### can be any key in the person-level dictionary (salary, director_fees, etc.) 
 feature_1 = "salary"
-feature_2 = "exercised_stock_options"
+#feature_2 = "exercised_stock_options"
+feature_2 = "from_messages"
+feature_3 = "total_payments"
 poi  = "poi"
 features_list = [poi, feature_1, feature_2]
 data = featureFormat(data_dict, features_list )
@@ -65,6 +75,14 @@ plt.show()
 ### cluster here; create predictions of the cluster labels
 ### for the data and store them to a list called pred
 
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import MinMaxScaler
+#scaler = MinMaxScaler()
+#finance_features = scaler.fit_transform(np.array(finance_features))
+#print finance_features[1]
+#print scaler.transform([[200000,1000000]])
+kmeans = KMeans(n_clusters=2)
+pred = kmeans.fit_predict(finance_features,poi)
 
 
 

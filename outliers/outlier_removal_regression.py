@@ -12,8 +12,6 @@ from outlier_cleaner import outlierCleaner
 ages = pickle.load( open("practice_outliers_ages.pkl", "r") )
 net_worths = pickle.load( open("practice_outliers_net_worths.pkl", "r") )
 
-
-
 ### ages and net_worths need to be reshaped into 2D numpy arrays
 ### second argument of reshape command is a tuple of integers: (n_rows, n_columns)
 ### by convention, n_rows is the number of data points
@@ -27,21 +25,19 @@ ages_train, ages_test, net_worths_train, net_worths_test = train_test_split(ages
 ### the plotting code below works, and you can see what your regression looks like
 
 
+from sklearn.linear_model import LinearRegression
+reg = LinearRegression()
+reg.fit(ages_train,net_worths_train)
 
 
-
-
-
-
-
-
-
+"""
 try:
     plt.plot(ages, reg.predict(ages), color="blue")
 except NameError:
     pass
 plt.scatter(ages, net_worths)
 plt.show()
+"""
 
 
 ### identify and remove the most outlier-y points
@@ -69,6 +65,8 @@ if len(cleaned_data) > 0:
     try:
         reg.fit(ages, net_worths)
         plt.plot(ages, reg.predict(ages), color="blue")
+        print reg.coef_
+        print reg.score(ages_test,net_worths_test)
     except NameError:
         print "you don't seem to have regression imported/created,"
         print "   or else your regression object isn't named reg"

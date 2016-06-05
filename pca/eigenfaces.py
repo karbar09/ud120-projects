@@ -72,6 +72,8 @@ print "Extracting the top %d eigenfaces from %d faces" % (n_components, X_train.
 t0 = time()
 pca = RandomizedPCA(n_components=n_components, whiten=True).fit(X_train)
 print "done in %0.3fs" % (time() - t0)
+print pca.components_[0]
+print pca.components_[1]
 
 eigenfaces = pca.components_.reshape((n_components, h, w))
 
